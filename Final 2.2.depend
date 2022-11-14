@@ -1,0 +1,195 @@
+# depslib dependency file v1.0
+1668308164 source:c:\users\hoid\desktop\final 2.2\random.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Random.h"
+
+1668306616 c:\users\hoid\desktop\final 2.2\random.h
+
+1668292627 source:c:\users\hoid\desktop\final 2.2\admin.c
+	<stdio.h>
+	<string.h>
+	"Admin.h"
+
+1668291609 c:\users\hoid\desktop\final 2.2\admin.h
+	"arbolClientes.h"
+
+1668301563 c:\users\hoid\desktop\final 2.2\arbolclientes.h
+	"Facturas.h"
+
+1668306583 c:\users\hoid\desktop\final 2.2\facturas.h
+	<string.h>
+	"Clientes.h"
+	"Random.h"
+
+1668288295 c:\users\hoid\desktop\final 2.2\clientes.h
+	<stdlib.h>
+	<stdio.h>
+	"Utilidades.h"
+
+1668282507 c:\users\hoid\desktop\final 2.2\utilidades.h
+
+1668301563 source:c:\users\hoid\desktop\final 2.2\arbolclientes.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"arbolClientes.h"
+
+1668308880 source:c:\users\hoid\desktop\final 2.2\cliente.c
+	<string.h>
+	"Clientes.h"
+
+1668306839 source:c:\users\hoid\desktop\final 2.2\facturas.c
+	<stdlib.h>
+	<stdio.h>
+	"Facturas.h"
+	<time.h>
+
+1668309325 source:c:\users\hoid\desktop\final 2.2\menu.c
+	<string.h>
+	"Menu.h"
+
+1668213245 c:\users\hoid\desktop\final 2.2\menu.h
+	"Admin.h"
+
+1668293155 source:c:\users\hoid\desktop\final 2.2\utilidades.c
+	<stdio.h>
+	<stdlib.h>
+	"Clientes.h"
+	<time.h>
+
+1668307112 source:c:\users\hoid\desktop\final 2.2\main.c
+	<stdlib.h>
+	<stdio.h>
+	"Menu.h"
+	<time.h>
+
+1668373805 source:c:\users\hoid\desktop\final 2.4\admin.c
+	<stdio.h>
+	<string.h>
+	"Admin.h"
+
+1668291609 c:\users\hoid\desktop\final 2.4\admin.h
+	"arbolClientes.h"
+
+1668459642 c:\users\hoid\desktop\final 2.4\arbolclientes.h
+	"Facturas.h"
+
+1668368663 c:\users\hoid\desktop\final 2.4\facturas.h
+	<string.h>
+	"Clientes.h"
+	"Random.h"
+
+1668288295 c:\users\hoid\desktop\final 2.4\clientes.h
+	<stdlib.h>
+	<stdio.h>
+	"Utilidades.h"
+
+1668372339 c:\users\hoid\desktop\final 2.4\utilidades.h
+
+1668306616 c:\users\hoid\desktop\final 2.4\random.h
+
+1668460848 source:c:\users\hoid\desktop\final 2.4\arbolclientes.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"arbolClientes.h"
+
+1668460602 source:c:\users\hoid\desktop\final 2.4\cliente.c
+	<string.h>
+	"Clientes.h"
+
+1668368663 source:c:\users\hoid\desktop\final 2.4\facturas.c
+	<stdlib.h>
+	<stdio.h>
+	"Facturas.h"
+	<time.h>
+
+1668307112 source:c:\users\hoid\desktop\final 2.4\main.c
+	<stdlib.h>
+	<stdio.h>
+	"Menu.h"
+	<time.h>
+
+1668213245 c:\users\hoid\desktop\final 2.4\menu.h
+	"Admin.h"
+
+1668461368 source:c:\users\hoid\desktop\final 2.4\menu.c
+	<string.h>
+	"Menu.h"
+
+1668337336 source:c:\users\hoid\desktop\final 2.4\random.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Random.h"
+
+1668373402 source:c:\users\hoid\desktop\final 2.4\utilidades.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	"Clientes.h"
+
+1668373805 source:c:\users\sebastian\desktop\tp 3.0 final\admin.c
+	<stdio.h>
+	<string.h>
+	"Admin.h"
+
+1668291609 c:\users\sebastian\desktop\tp 3.0 final\admin.h
+	"arbolClientes.h"
+
+1668459642 c:\users\sebastian\desktop\tp 3.0 final\arbolclientes.h
+	"Facturas.h"
+
+1668368663 c:\users\sebastian\desktop\tp 3.0 final\facturas.h
+	<string.h>
+	"Clientes.h"
+	"Random.h"
+
+1668288295 c:\users\sebastian\desktop\tp 3.0 final\clientes.h
+	<stdlib.h>
+	<stdio.h>
+	"Utilidades.h"
+
+1668372339 c:\users\sebastian\desktop\tp 3.0 final\utilidades.h
+
+1668306616 c:\users\sebastian\desktop\tp 3.0 final\random.h
+
+1668460848 source:c:\users\sebastian\desktop\tp 3.0 final\arbolclientes.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"arbolClientes.h"
+
+1668460602 source:c:\users\sebastian\desktop\tp 3.0 final\cliente.c
+	<string.h>
+	"Clientes.h"
+
+1668368663 source:c:\users\sebastian\desktop\tp 3.0 final\facturas.c
+	<stdlib.h>
+	<stdio.h>
+	"Facturas.h"
+	<time.h>
+
+1668461368 source:c:\users\sebastian\desktop\tp 3.0 final\menu.c
+	<string.h>
+	"Menu.h"
+
+1668213245 c:\users\sebastian\desktop\tp 3.0 final\menu.h
+	"Admin.h"
+
+1668337336 source:c:\users\sebastian\desktop\tp 3.0 final\random.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Random.h"
+
+1668373402 source:c:\users\sebastian\desktop\tp 3.0 final\utilidades.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+	"Clientes.h"
+
