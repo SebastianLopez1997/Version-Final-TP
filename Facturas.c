@@ -68,11 +68,21 @@ void MuestraUnicaFactura(STFactura Factura)
 void MostrarTodasLasFacturasDeUnCliente(nodoFactura *Lista)
 {
     nodoFactura * seg=Lista;
-    while (seg)
+    if (seg)
     {
-        MuestraUnicaFactura(seg->Factura);
-        seg=seg->sig;
+
+
+        while (seg)
+        {
+            MuestraUnicaFactura(seg->Factura);
+            seg=seg->sig;
+        }
     }
+    else
+    {
+        printf("\n\t\t\t\t\tNo hay facturas para mostrar\n");
+    }
+
 }
 
 void AbrirArchiFacturasYleer(char ArchiFacturas[])

@@ -5,49 +5,52 @@
 void modificarNombre(char nombre[])
 {
     char nom[30];
-    do{
-        printf("HOLA!\n");
+    do
+    {
         printf("\n\t\t\t\tIngrese nombre: ");
         fflush(stdin);
         scanf("%s", nom);
-    }while(validarPalabra(nom)==-1);
+    }
+    while(validarPalabra(nom)==-1);
     strcpy(nombre, nom);
-
 }
 
 void modificarApellido(char apellido[])
 {
     char ape[30];
-    do{
+    do
+    {
         printf("\n\t\t\t\tIngrese el apellido: ");
         fflush(stdin);
         scanf("%s", ape);
-    }while(validarPalabra(ape)==-1);
-
+    }
+    while(validarPalabra(ape)==-1);
     strcpy(apellido, ape);
 }
 
 void modificarTelefono(char telefono[])
 {
     char tel[20];
-    do{
+    do
+    {
         printf("\n\t\t\t\tIngrese el telefono: ");
         fflush(stdin);
-        scanf("%s", tel);
-    }while(validarNumero(tel)==-1);
-
+        scanf("%s",tel);
+    }
+    while(validartel(tel)==-1);
     strcpy(telefono, tel);
 }
 
 void modificarBarrio(char barrio[])
 {
     char ba[20];
-    do{
+    do
+    {
         printf("\n\t\t\t\tIngrese el barrio: ");
         fflush(stdin);
         scanf("%s", ba);
-    }while(validarPalabra(ba)==-1);
-
+    }
+    while(validarPalabra(ba)==-1);
     strcpy(barrio, ba);
 }
 void modificarDireccion(char direccion[])
@@ -61,11 +64,17 @@ void modificarDireccion(char direccion[])
 
 void cambiarPassword(char password[])
 {
-    char pass[8];
-    printf("\n\t\t\t\tIngrese la nueva password: ");
-    fflush(stdin);
-    scanf("%s", pass);
+    char pass[10];
+    do
+    {
+        printf("\n\t\t\t\tIngrese la nueva password: ");
+        fflush(stdin);
+        scanf("%s", pass);
+    }
+    while(strlen(pass)>11);
     strcpy(password, pass);
+    system("pause");
+    system("cls");
 }
 
 /// === CARGA CLIENTE MANUAL
@@ -79,6 +88,8 @@ STCliente CargarUnCliente()
         ClienteNuevo.Servicio = CargaServicio();
         MostrarUncliente(ClienteNuevo);
         system("pause");
+        system("cls");
+        elBug();
     }
     else
     {
@@ -92,12 +103,14 @@ STPersonal cargaDatosPersonales()
 {
     STPersonal dato;
     int flag;
-    do{
+    do
+    {
         printf("\n\t\t\t\tIngrese el DNI:  ");
         fflush(stdin);
-        scanf("%s", dato.DNI);
+        scanf("%s",dato.DNI); /// SI APARECE EL BUG AGREGAR & :)
         flag=validarNumero(dato.DNI);
-    }while(flag==-1);
+    }
+    while(flag==-1);
 
     modificarNombre(dato.Nombre);
     modificarApellido(dato.Apellido);
@@ -113,92 +126,99 @@ STLogin cargaLogin(STPersonal cliente)
     char password[10];
     STLogin login;
     login.id = cliente.id;
-    printf("\t\t\t\tIngrese la contrasena (MAX 10 Caracteres); \n");
-    printf("\t\t\t\t");
+    do{
+    printf("\n\t\t\t\tIngrese la contrasena (MAX 10 Caracteres): ");
     fflush(stdin);
     scanf("%s", password);
+    }while(strlen(password)>11);
     strcpy(login.pass, password);
+    printf("\n");
+    system("pause");
+    system("cls");
+    elBug();
     return login;
 }
-
-
 
 STServicio CargaServicio()
 {
     STServicio Servicio;
     int flagInternet = 0, flagCable = 0, flagCombo = 0, flagNuevo = 0, Seleccion = -1, FlagInternet2 = 0, FlagflagCable2 = 0, FlagCombo2 = 0, flagMenu = 0;
 
-        printf("\n\t\t\t\tSelecione el servicio que desea contratar: \n");
-        printf("\n\t\t\t\t1. Internet           - $1000.\n");
-        printf("\n\t\t\t\t2. Cable              - $600.\n");
-        printf("\n\t\t\t\t3. Internet + Cable   - $1300.\n");
-        Seleccion = -1;
-        scanf("%i", &Seleccion);
-        switch (Seleccion)
+    printf("\n\t\t\t\tSelecione el servicio que desea contratar: \n");
+    printf("\n\t\t\t\t1. Internet           - $1000.\n");
+    printf("\n\t\t\t\t2. Cable              - $600.\n");
+    printf("\n\t\t\t\t3. Internet + Cable   - $1600.\n");
+    printf("\n\t\t\t\t¡TU PRIMER MES CONTRATADO ES SIN CARGO!\n");
+    printf("\n\t\t\t\tSu eleccion: ");
+    Seleccion = -1;
+    scanf("%i", &Seleccion);
+    switch (Seleccion)
+    {
+    case 1:
+        if (flagInternet == 0)
         {
-        case 1:
-            if (flagInternet == 0)
-            {
-                printf("\n\t\t\t\tEl servicio de Internet ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion");
-                Servicio.Internet = 1;
-                flagInternet = 1;
-            }
-            else
-            {
-                printf("Usted tiene activo el servicio de Internet, desea darlo de bajo?\n Seleccione 1 para dalo de baja\n Seleccione 2 para salir\n");
-                scanf("%i", &FlagInternet2);
-                if (FlagInternet2 == 1)
-                {
-                    Servicio.Internet = 0;
-                }
-            }
-            break;
-        case 2:
-            if (flagCable == 0)
-            {
-                printf("\n\t\t\t\tEl servicio de Cable ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion");
-                Servicio.Cable = 1;
-                flagCable = 1;
-            }
-            else
-            {
-                printf("\n\t\t\t\tUsted tiene activo el servicio de cable, desea darlo de bajo?\n\t\t\t\tSeleccione 1 para dalo de baja\n\t\t\t\tSeleccione 2 para salir\n");
-                scanf("%i", &FlagflagCable2);
-                if (FlagflagCable2 == 1)
-                {
-                    Servicio.Cable = 0;
-                }
-            }
-            break;
-        case 3:
-            if (flagCombo == 0)
-            {
-                printf("\n\t\t\t\tEl servicios de Internet y Cable ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion");
-                Servicio.Cable = 1;
-                Servicio.Internet = 1;
-                flagCombo = 1;
-            }
-            else
-            {
-                printf("\n\t\t\t\tUsted tiene activo el servicio de internet mas cable, desea darlo de bajo?\n\t\t\t\tSeleccione 1 para dalo de baja\n\t\t\t\tSeleccione 2 para salir\n");
-                scanf("%i", &FlagCombo2);
-                if (FlagCombo2 == 1)
-                {
-                    Servicio.Internet = 0;
-                    Servicio.Cable = 0;
-                }
-            }
-            break;
-        case 4:
-
-            printf("\n\t\t\t\tSu usuario quedo registrado, cuando guste podra ingresar nuevamente a nuestra pagina y contratar el servicio deseado \n");
-            system("pause");
-            flagNuevo = 1;
-            break;
-        default:
-            printf("\nSeleccion invalida\n");
-            break;
+            printf("\n\t\t\t\tEl servicio de Internet ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion\n\n\t\t\t\tSu datos son: \n");
+            Servicio.Internet = 1;
+            flagInternet = 1;
+            Servicio.Cable=0;
         }
+        else
+        {
+            printf("Usted tiene activo el servicio de Internet, desea darlo de bajo?\n Seleccione 1 para dalo de baja\n Seleccione 2 para salir\n");
+            scanf("%i", &FlagInternet2);
+            if (FlagInternet2 == 1)
+            {
+                Servicio.Internet = 0;
+            }
+        }
+        break;
+    case 2:
+        if (flagCable == 0)
+        {
+            printf("\n\t\t\t\tEl servicio de Cable ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion");
+            Servicio.Cable = 1;
+            flagCable = 1;
+            Servicio.Internet=0;
+        }
+        else
+        {
+            printf("\n\t\t\t\tUsted tiene activo el servicio de cable, desea darlo de bajo?\n\t\t\t\tSeleccione 1 para dalo de baja\n\t\t\t\tSeleccione 2 para salir\n");
+            scanf("%i", &FlagflagCable2);
+            if (FlagflagCable2 == 1)
+            {
+                Servicio.Cable = 0;
+
+            }
+        }
+        break;
+    case 3:
+        if (flagCombo == 0)
+        {
+            printf("\n\t\t\t\tEl servicios de Internet y Cable ha sido dado de alta.\n\t\t\t\tEn breve nos comunicaremos coordinar la instalacion");
+            Servicio.Cable = 1;
+            Servicio.Internet = 1;
+            flagCombo = 1;
+        }
+        else
+        {
+            printf("\n\t\t\t\tUsted tiene activo el servicio de internet mas cable, desea darlo de bajo?\n\t\t\t\tSeleccione 1 para dalo de baja\n\t\t\t\tSeleccione 2 para salir\n");
+            scanf("%i", &FlagCombo2);
+            if (FlagCombo2 == 1)
+            {
+                Servicio.Internet = 0;
+                Servicio.Cable = 0;
+            }
+        }
+        break;
+    case 4:
+        printf("\n\t\t\t\tSu usuario quedo registrado, cuando guste podra ingresar nuevamente a nuestra pagina y contratar el servicio deseado \n");
+        system("pause");
+        flagNuevo = 1;
+        break;
+    default:
+        printf("\nSeleccion invalida\n");
+        break;
+    }
 
     return Servicio;
 }
@@ -294,15 +314,24 @@ void generarArchivoRandom(char archivo[])
 /// Mostrar CLiente
 void MostrarUncliente(STCliente aux)
 {
-    printf("\t\t\t\t\tID: %i\n", aux.Dato.id);
+    printf("\n\t\t\t\t\tID: %i\n", aux.Dato.id);
     printf("\t\t\t\t\tNombre: %s\n", aux.Dato.Nombre);
     printf("\t\t\t\t\tApellido: %s\n", aux.Dato.Apellido);
     printf("\t\t\t\t\tDireccion: %s\n", aux.Dato.direccion.Direccion);
     printf("\t\t\t\t\tBarrio: %s\n", aux.Dato.direccion.Barrio);
     printf("\t\t\t\t\tDNI: %s\n", aux.Dato.DNI);
-
-    printf("\t\t\t\t\tDNI: %i\n", aux.Servicio.Cable);
-    printf("\t\t\t\t\tDNI: %i\n", aux.Servicio.Internet);
+    if(aux.Servicio.Cable == 0)
+    {
+        printf("\t\t\t\t\tCABLE: NO CONTRATADO\n");
+    }
+    else
+    {
+        printf("\t\t\t\t\tCABLE: CONTRATADO\n");
+    }
+    if(aux.Servicio.Internet == 0)
+        printf("\t\t\t\t\tINTERNET: NO CONTRATADO\n");
+    else
+        printf("\t\t\t\t\tINTERNET: CONTRATADO\n");
 
     printf("\t\t\t\t\tNumero de contacto: %s\n", aux.Dato.NumeroCel);
     printf("\t\t\t\t\t=============================\n");
@@ -313,7 +342,7 @@ STCliente DarmeLaBaja(STCliente aux)
 {
     aux.Servicio.Cable = 0;
     aux.Servicio.Internet = 0;
-    printf("\n Usted fue dado de baja \n");
+    printf("\n\t\t\t\t Usted fue dado de baja \n");
     return aux;
 }
 
@@ -338,6 +367,7 @@ int funcionComprobarDNI(char dni[], char archivo[])
             if (strcmpi(a.DNI, dni) == 0)
             {
                 flag = 1; /// El dni ya está en uso.
+
             }
         }
         fclose(fp);

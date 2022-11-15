@@ -132,12 +132,12 @@
 	<time.h>
 	"Clientes.h"
 
-1668373805 source:c:\users\sebastian\desktop\tp 3.0 final\admin.c
+1668480918 source:c:\users\sebastian\desktop\tp 3.0 final\admin.c
 	<stdio.h>
 	<string.h>
 	"Admin.h"
 
-1668291609 c:\users\sebastian\desktop\tp 3.0 final\admin.h
+1668480137 c:\users\sebastian\desktop\tp 3.0 final\admin.h
 	"arbolClientes.h"
 
 1668459642 c:\users\sebastian\desktop\tp 3.0 final\arbolclientes.h
@@ -153,27 +153,27 @@
 	<stdio.h>
 	"Utilidades.h"
 
-1668372339 c:\users\sebastian\desktop\tp 3.0 final\utilidades.h
+1668480137 c:\users\sebastian\desktop\tp 3.0 final\utilidades.h
 
 1668306616 c:\users\sebastian\desktop\tp 3.0 final\random.h
 
-1668460848 source:c:\users\sebastian\desktop\tp 3.0 final\arbolclientes.c
+1668471987 source:c:\users\sebastian\desktop\tp 3.0 final\arbolclientes.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
 	"arbolClientes.h"
 
-1668460602 source:c:\users\sebastian\desktop\tp 3.0 final\cliente.c
+1668481513 source:c:\users\sebastian\desktop\tp 3.0 final\cliente.c
 	<string.h>
 	"Clientes.h"
 
-1668368663 source:c:\users\sebastian\desktop\tp 3.0 final\facturas.c
+1668480525 source:c:\users\sebastian\desktop\tp 3.0 final\facturas.c
 	<stdlib.h>
 	<stdio.h>
 	"Facturas.h"
 	<time.h>
 
-1668461368 source:c:\users\sebastian\desktop\tp 3.0 final\menu.c
+1668480447 source:c:\users\sebastian\desktop\tp 3.0 final\menu.c
 	<string.h>
 	"Menu.h"
 
@@ -186,10 +186,16 @@
 	<string.h>
 	"Random.h"
 
-1668373402 source:c:\users\sebastian\desktop\tp 3.0 final\utilidades.c
+1668480055 source:c:\users\sebastian\desktop\tp 3.0 final\utilidades.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<time.h>
 	"Clientes.h"
+
+1668481046 source:c:\users\sebastian\desktop\tp 3.0 final\main.c
+	<stdlib.h>
+	<stdio.h>
+	"Menu.h"
+	<time.h>
 

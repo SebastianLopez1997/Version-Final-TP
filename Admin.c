@@ -21,7 +21,7 @@ int ComprobarUsuario(arbolClientes *arbol, char usuario[20], char contrasena[20]
     }
     else
     {
-        printf("\nDatos ingresador incorrectos\n");
+        printf("\n\t\t\t\t\tDatos ingresador incorrectos\n");
     }
     return flag;
 }
@@ -127,12 +127,15 @@ void funcionesAdministrador(arbolClientes *arbol)
                 }
                 else
                 {
-                    printf("\nCliente no encontrado.\n");
+                    system("cls");
+                    printf("\n\t\t\t\t\tCliente no encontrado.\n");
                 }
             }
             break;
         default:
-            printf("\nHasta luego\n");
+            printf("\n\t\t\t\t\tOpcion ingresada Invalida\n");
+            system("pause");
+            system("cls");
             break;
         }
     }

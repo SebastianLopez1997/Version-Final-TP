@@ -80,7 +80,8 @@ arbolClientes *borrarCliente(arbolClientes *arbol, int idCliente)
                 arbol->der = borrarCliente(arbol->der, masIzquierda->Cliente.Dato.id);
             }
             else
-            { // En caso de que sea hoja.
+            {
+                // En caso de que sea hoja.
                 free(arbol);
                 arbol = NULL;
             }
@@ -175,32 +176,12 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
 {
     char seguir = 's';
     int opcion, flag = 1, idBuscado;
-    arbolClientes *modificado = inicArbol();
-    STCliente nuevo;
+    STCliente nuevo = arbol->Cliente;
     STRegistroCliente mod;
 
+    printf("\n\t\t\t\t\tVamos a solicitarle los cambios correspondientes.\n");
     while (seguir != 'n')
     {
-        printf("\n\t\t\t\t\tIngrese el ID del cliente.\n");
-        scanf("%i", &idBuscado);
-        modificado = buscarNodoCliente(arbol, idBuscado);
-        if (modificado != NULL)
-        {
-            nuevo = modificado->Cliente;
-            seguir = 'n';
-        }
-        else
-        {
-            printf("El DNI ingresado no ha sido encontrado.\n");
-            seguir = confirmacionBucle();
-        }
-    }
-
-    seguir = 's';
-
-    while (seguir != 'n')
-    {
-
         printf("\n\t\t\t\tQue valor desea modificar?\n");
         printf("\n\t\t\t\t1. Nombre.\n");
         printf("\n\t\t\t\t2. Apellido.\n");
@@ -208,7 +189,6 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
         printf("\n\t\t\t\t4. Barrio.\n");
         printf("\n\t\t\t\t5. Calle.\n");
         printf("\n\t\t\t\t6. Password.\n");
-        printf("nombre: %s", nuevo.Dato.Nombre);
         scanf("%i", &opcion);
         switch (opcion)
         {
@@ -280,11 +260,11 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
         seguir = confirmacionBucle();
         system("cls");
     }
-
     if (flag == 0)
-    { /*Hubo modifiación, entonces procede a la sustitución de la estructura.*/
-        modificado->Cliente = nuevo;
-        mod=crearRegistroCliente(modificado);
+    {
+        /*Hubo modifiación, entonces procede a la sustitución de la estructura.*/
+        arbol->Cliente = nuevo;
+        mod=crearRegistroCliente(arbol);
         persistirRegistroModificado("Clientes.bin", mod);
     }
 
@@ -292,10 +272,12 @@ arbolClientes *modificarDatosPersonalesCliente(arbolClientes *arbol)
 }
 
 /// PERSISTENCIA ARBOL Y CLIENTE.
-void persistirRegistroModificado(char archivo[], STRegistroCliente nuevo){
+void persistirRegistroModificado(char archivo[], STRegistroCliente nuevo)
+{
     FILE * fp=fopen(archivo, "r+b");
     STRegistroCliente aux;
-    if(fp){
+    if(fp)
+    {
         fseek(fp, sizeof(STRegistroCliente)*(nuevo.id-1), SEEK_SET);
         fwrite(&nuevo, sizeof(STRegistroCliente), 1, fp);
         fclose(fp);
@@ -383,12 +365,16 @@ arbolClientes *archivoTOADL(arbolClientes *arbol, char archivo[])
     return arbol;
 }
 
-void modificarArchivoServicios(char archivo[], int idCliente){
+void modificarArchivoServicios(char archivo[], int idCliente)
+{
     FILE * fp=fopen(archivo, "r+b");
     STRegistroCliente a;
-    if(fp){
-        while(fread(&a, sizeof(STRegistroCliente), 1, fp)>0){
-            if(a.id==idCliente){
+    if(fp)
+    {
+        while(fread(&a, sizeof(STRegistroCliente), 1, fp)>0)
+        {
+            if(a.id==idCliente)
+            {
                 a.Internet=0;
                 a.Cable=0;
                 fseek(fp, sizeof(STRegistroCliente)*(-1), SEEK_SET);
@@ -465,14 +451,22 @@ void DespersistenciaDeFacturas(char archivoFacturas[], arbolClientes *arbol)
     }
 }
 
-void agregarFacturaAlNodo(arbolClientes * arbol, nodoFactura * nuevoNodo){
-    if(arbol){
-        if(arbol->Cliente.Dato.id == nuevoNodo->Factura.id){
+void agregarFacturaAlNodo(arbolClientes * arbol, nodoFactura * nuevoNodo)
+{
+    if(arbol)
+    {
+        if(arbol->Cliente.Dato.id == nuevoNodo->Factura.id)
+        {
             arbol->Factura=agregarAlPrincipio(arbol->Factura, nuevoNodo);
-            }else{
-            if(nuevoNodo->Factura.id < arbol->Cliente.Dato.id ){
+        }
+        else
+        {
+            if(nuevoNodo->Factura.id < arbol->Cliente.Dato.id )
+            {
                 agregarFacturaAlNodo(arbol->izq, nuevoNodo);
-            }else{
+            }
+            else
+            {
                 agregarFacturaAlNodo(arbol->der, nuevoNodo);
             }
         }

@@ -58,13 +58,15 @@ arbolClientes *Menu(arbolClientes *arbolPrincipal)
                     case 3:
                         system("cls");
                         elBug();
+
                         Cliente = modificarDatosPersonalesCliente(Cliente);
+                        system("cls");
                         system("pause");
                         break;
                     case 4:
                         system("cls");
                         elBug();
-                        DarmeLaBaja(Cliente->Cliente);
+                        Cliente->Cliente=DarmeLaBaja(Cliente->Cliente);
                         aux=crearRegistroCliente(Cliente);
                         persistirRegistroModificado("Clientes.bin", aux);
                         arbolPrincipal = borrarCliente(arbolPrincipal, Cliente->Cliente.Dato.id);
@@ -105,10 +107,11 @@ arbolClientes *Menu(arbolClientes *arbolPrincipal)
         }
         system("cls");
         elBug();
-        printf("\n\t\t\t\t\tIngrese 0 para salir del programa. \n\t\t\t\t\tIngrese 1 para volver al menu de inicio\n");
+        printf("\n\t\t\t\t\tIngrese 0 para salir del programa. \n\t\t\t\t\tIngrese 1 para volver al menu de inicio\n\t\t\t\t\t");
         scanf("%i", &numerillo);
         system("cls");
     }
-    while (numerillo = 1);
+    while (numerillo != 0);
+
     return arbolPrincipal;
 }

@@ -10,4 +10,5 @@ void menuAdministrador(arbolClientes *arbol);
 void funcionesAdministrador(arbolClientes *arbol);
 int LoginDeUsuario(arbolClientes *Arbol);
 int buscarIdArchivo(char archivo[], char DNI[]);
+
 #endif // ADMIN_H_INCLUDED
